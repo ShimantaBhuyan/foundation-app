@@ -1,0 +1,57 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "FOUNDATION_APP",
+    "collectionId": "6bd7f36a-bce5-4d3a-a71c-d86085964280",
+    "dateExported": "2024-06-13T20:42:35.308Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8bf57de2-4f38-46ec-a699-9c9b861cc45f",
+            "colId": "6bd7f36a-bce5-4d3a-a71c-d86085964280",
+            "containerId": "",
+            "name": "CREATE NONPROFIT",
+            "url": "http://localhost:8080/nonprofits",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-13T20:42:17.955Z",
+            "modified": "2024-06-13T20:42:17.955Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Humane Society\",\n    \"email\": \"info@humanesociety.org\",\n    \"street\": \"1234 Shelter Lane\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"zipcode\": \"10001\",\n    \"country\": \"USA\"\n  }",
+                "form": []
+            }
+        },
+        {
+            "_id": "b11993c9-147f-47a9-a268-079de82f2dfe",
+            "colId": "6bd7f36a-bce5-4d3a-a71c-d86085964280",
+            "containerId": "",
+            "name": "BULK SEND EMAILS TO NONPROFITS",
+            "url": "http://localhost:8080/emails",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-13T20:42:23.286Z",
+            "modified": "2024-06-13T20:42:23.286Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"subject\": \"New payment for foundations\",\n  \"templateString\": \"Disbursing to {name} | Address: {address}\",\n  \"recipients\": [\n    \"info@humanesociety.org\",\n    \"info@savethechildren.org\"\n    ]\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "1cf6d6fd-d828-4f4a-8343-28891cc0a8e3",
+            "colId": "6bd7f36a-bce5-4d3a-a71c-d86085964280",
+            "containerId": "",
+            "name": "GET ALL EMAILS",
+            "url": "http://localhost:8080/emails",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-06-13T20:42:28.222Z",
+            "modified": "2024-06-13T20:42:28.222Z",
+            "headers": []
+        }
+    ],
+    "ref": "gzmBL0LZVlSIoBqwOqew2N19yhhVUddmGXzrl6Ez8He29yQyCRCg1wyRSI1bDB1bdqMw3qlK00wvO3yVyZmTRg"
+}
