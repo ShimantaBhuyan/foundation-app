@@ -1,0 +1,19 @@
+# Goignore
+
+## Go
+*.go
+
+## Vendor
+vendor/
+
+## Temporary
+*.log
+*.txt
+
+## OS
+.DS_Store
+
+## IDEs and editors
+.vscode/
+
+sample_foundations.json
