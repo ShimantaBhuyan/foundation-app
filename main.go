@@ -1,20 +1,22 @@
+// Foundation App Server
+//
+// Create nonprofits, send emails in bulk with templates
 package main
 
 import (
-	"foundation-app/internal/api/handlers"
-	models "foundation-app/internal/models"
-	inmem "foundation-app/pkg/store"
 	"log"
 	"net/http"
+
+	"github.com/ShimantaBhuyan/foundation-app/internal/api/handlers"
+	models "github.com/ShimantaBhuyan/foundation-app/internal/models"
+	inmem "github.com/ShimantaBhuyan/foundation-app/pkg/store"
 
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 )
 
-/*
-func main method is the entry point that initializes in-memory stores
-and orchestrates API server with the initialised stores
-*/
+// func main method is the entry point that initializes in-memory stores
+// and orchestrates API server with the initialised stores
 func main() {
 	// Initialize in-memory stores
 	emailStore := inmem.NewEmailStore()

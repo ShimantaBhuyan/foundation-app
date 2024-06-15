@@ -1,7 +1,7 @@
 package store
 
 import (
-	model "foundation-app/internal/models"
+	model "github.com/ShimantaBhuyan/foundation-app/internal/models"
 
 	"github.com/google/uuid"
 )

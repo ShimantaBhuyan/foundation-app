@@ -1,4 +1,4 @@
-module foundation-app
+module github.com/ShimantaBhuyan/foundation-app
 
 go 1.22.4
 

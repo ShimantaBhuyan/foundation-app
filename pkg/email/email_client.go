@@ -2,14 +2,13 @@ package email
 
 import (
 	"fmt"
-	model "foundation-app/internal/models"
+
+	model "github.com/ShimantaBhuyan/foundation-app/internal/models"
 )
 
 // Client is a dummy email client implementation
-/*
-Client struct is a simple and dummy implementation of the
-EmailStore
-*/
+//
+// Client struct is a simple and dummy implementation of the EmailStore
 type Client struct{}
 
 // NewClient returns a new instance of the email client

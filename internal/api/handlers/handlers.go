@@ -4,7 +4,7 @@
 package handlers
 
 import (
-	"foundation-app/internal/store"
+	"github.com/ShimantaBhuyan/foundation-app/internal/store"
 )
 
 type APIHandlers struct {
@@ -17,4 +17,10 @@ func NewAPIHandlers(emailStore store.EmailStore, nonprofitStore store.NonprofitS
 		emailStore:     emailStore,
 		nonprofitStore: nonprofitStore,
 	}
+}
+
+type APIResponse struct {
+	Success bool        `json:"success"`
+	Data    interface{} `json:"data"`
+	Error   string      `json:"error"`
 }

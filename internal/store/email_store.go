@@ -1,12 +1,10 @@
 package store
 
 import (
-	model "foundation-app/internal/models"
+	model "github.com/ShimantaBhuyan/foundation-app/internal/models"
 )
 
-/*
-EmailStore interface represents the necessary functions to interact with the email-related data.
-*/
+// EmailStore interface represents the necessary functions to interact with the email-related data.
 type EmailStore interface {
 	// BulkSendEmails sends emails to multiple recipients
 	BulkSendEmails(emails map[string]model.Email) error

@@ -5,27 +5,25 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"foundation-app/internal/dtos"
-	models "foundation-app/internal/models"
+	"github.com/ShimantaBhuyan/foundation-app/internal/dtos"
+	models "github.com/ShimantaBhuyan/foundation-app/internal/models"
 
 	"github.com/google/uuid"
 )
 
-type BulkSendEmailResponse struct {
-	Message string `json:"message"`
-}
-
 // BulkSendEmails sends emails to a list of nonprofits
-/**
-  Summary:
-    This function handles the request for sending emails to a list of nonprofits. It receives
-    a list of email addresses with the associated template values, maps them to models.Email,
-    and sends the email using the email store.
+//
+//   Summary:
+//
+//     This function handles the request for sending emails to a list of nonprofits. It receives
+//     a list of email addresses with the associated template values, maps them to models.Email,
+//     and sends the email using the email store.
+//
+//   Returns:
+//
+//     A JSON response containing the following:
+//     - Message: A success message stating all the emails have been sent.
 
-  Returns:
-    A JSON response containing the following:
-    - Message: A success message stating all the emails have been sent.
-*/
 func (h *APIHandlers) BulkSendEmails(w http.ResponseWriter, r *http.Request) {
 	var bulkSendRequestDTO dtos.BulkSendEmailsDTO
 	err := json.NewDecoder(r.Body).Decode(&bulkSendRequestDTO)
@@ -40,13 +38,18 @@ func (h *APIHandlers) BulkSendEmails(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	sendToEmails := []string{}
+
 	templateVariables := make(map[string](map[string]string), len(nonprofits))
 	for _, nonprofit := range nonprofits {
+		sendToEmails = append(sendToEmails, nonprofit.Email)
 		templateVariable := map[string]string{}
 		templateVariable["name"] = nonprofit.Name
 		templateVariable["address"] = nonprofit.Address.Street + ", " + nonprofit.Address.City + ", " + nonprofit.Address.State + ", " + nonprofit.Address.Country
 		templateVariables[nonprofit.Email] = templateVariable
 	}
+
+	bulkSendRequestDTO.Recipients = sendToEmails
 
 	emails := FromBulkSendEmailsDTO(bulkSendRequestDTO, templateVariables)
 
@@ -56,11 +59,21 @@ func (h *APIHandlers) BulkSendEmails(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response := BulkSendEmailResponse{Message: "Emails sent successfully"}
-	jsonResponse, _ := json.Marshal(response)
+	response := APIResponse{
+		Success: true,
+		Data:    "Emails sent successfully",
+		Error:   "",
+	}
+
+	js, err := json.Marshal(response)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write(jsonResponse)
+	w.Write(js)
 }
 
 // This function maps the individual DTO structure to models.Email,

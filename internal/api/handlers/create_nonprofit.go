@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"foundation-app/internal/dtos"
-	models "foundation-app/internal/models"
+	"github.com/ShimantaBhuyan/foundation-app/internal/dtos"
+	models "github.com/ShimantaBhuyan/foundation-app/internal/models"
 
 	"github.com/google/uuid"
 )
@@ -15,14 +15,14 @@ type CreateNonprofitResponse struct {
 }
 
 // CreateNonprofit creates a new nonprofit
-/**
-  Summary:
-    This function handles the request to create a new nonprofit in the system. It receives a JSON payload
-    containing the required information for the nonprofit, validates it, and saves it in a nonprofit store.
+//
+//   Summary:
+//     This function handles the request to create a new nonprofit in the system. It receives a JSON payload
+//     containing the required information for the nonprofit, validates it, and saves it in a nonprofit store.
 
-  Returns:
-    The newly created nonprofit's ID is sent back as a JSON response.
-*/
+// Returns:
+//
+//	The newly created nonprofit's ID is sent back as a JSON response.
 func (h *APIHandlers) CreateNonprofit(w http.ResponseWriter, r *http.Request) {
 	var nonprofitDTO dtos.CreateNonprofitDTO
 	err := json.NewDecoder(r.Body).Decode(&nonprofitDTO)
@@ -39,8 +39,12 @@ func (h *APIHandlers) CreateNonprofit(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response := CreateNonprofitResponse{
-		ID: uuid.New(),
+	response := APIResponse{
+		Success: true,
+		Data: CreateNonprofitResponse{
+			ID: uuid.New(),
+		},
+		Error: "",
 	}
 
 	js, err := json.Marshal(response)

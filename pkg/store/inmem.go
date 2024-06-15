@@ -1,10 +1,11 @@
 package externalstore
 
 import (
-	models "foundation-app/internal/models"
-	"foundation-app/internal/store"
-	emailClient "foundation-app/pkg/email"
 	"sync"
+
+	models "github.com/ShimantaBhuyan/foundation-app/internal/models"
+	"github.com/ShimantaBhuyan/foundation-app/internal/store"
+	emailClient "github.com/ShimantaBhuyan/foundation-app/pkg/email"
 
 	"github.com/google/uuid"
 )
