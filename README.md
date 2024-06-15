@@ -9,11 +9,6 @@ a simple api server written in go
    - [Create Nonprofit](#create-nonprofit)
    - [Bulk Send Emails](#bulk-send-emails)
    - [Get All Emails](#get-all-emails)
-3. [Implementation Details](#implementation-details)
-   - [Data Models](#data-models)
-   - [API Handlers](#api-handlers)
-   - [In-Memory Stores](#in-memory-stores)
-   - [Server Setup](#server-setup)
 
 ## Getting Started
 
