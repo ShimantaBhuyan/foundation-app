@@ -66,7 +66,7 @@ Sample Request:
 
 `POST /emails`
 
-Send a list of emails using a customizable template for each recipient. The request body consists of an array of email data, which holds an email address and ID of the associated foundation.
+Send a list of emails using a customizable template for each recipient. The request body consists of an array of recipient email ids and the corresponding template string.
 
 Sample Request:
 
@@ -82,7 +82,7 @@ Sample Request:
 
 `GET /emails`
 
-Get the list of all emails sent by the foundations. Returns a list of email data, including the sender's foundation ID, the recipient's email address, and the timestamp when the email was sent.
+Get the list of all emails sent by the foundations. Returns a list of email data, including the sender's foundation ID, the emails subject and the email body.
 
 Sample Response:
 
