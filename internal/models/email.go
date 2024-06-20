@@ -7,6 +7,8 @@ type Email struct {
 	ID      uuid.UUID `json:"id"`
 	Subject string
 	Body    string
+	Cc      string
+	Bcc     string
 }
 
 // Summary:

@@ -6,6 +6,8 @@ import "github.com/google/uuid"
 type SentEmails struct {
 	EmailID   uuid.UUID
 	Recipient string
+	Cc        string
+	Bcc       string
 }
 
 // Summary:

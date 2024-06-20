@@ -16,4 +16,6 @@ type BulkSendEmailsDTO struct {
 	Subject        string   `json:"subject"`
 	TemplateString string   `json:"templateString"`
 	Recipients     []string `json:"recipients"`
+	CcRecipients   string   `json:"cc"`
+	BccRecipients  string   `json:"bcc"`
 }

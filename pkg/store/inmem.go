@@ -42,6 +42,8 @@ func (s *InMemEmailStore) BulkSendEmails(emails map[string]models.Email) error {
 		s.sentEmails[id] = models.SentEmails{
 			EmailID:   id,
 			Recipient: emailAddr,
+			Cc:        email.Cc,
+			Bcc:       email.Bcc,
 		}
 		s.emails[id] = email
 

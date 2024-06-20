@@ -90,6 +90,8 @@ func FromBulkSendEmailsDTO(bulkSendBody dtos.BulkSendEmailsDTO, templateVariable
 			ID:      uuid.New(),
 			Subject: bulkSendBody.Subject,
 			Body:    message,
+			Cc:      bulkSendBody.CcRecipients,
+			Bcc:     bulkSendBody.BccRecipients,
 		}
 	}
 
